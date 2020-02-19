@@ -19,27 +19,17 @@ public class AccountServiceImpl implements AccountService
 	}
 
 	@Override
-	public int createWalletAccount(WalletAccount account) throws AccountException {
+	public int createWalletAccount(WalletAccount account) throws AccountException
+	  {
+		Random random=new Random();
+		int accountId=random.nextInt(100)+1000;
 		
+
+
 		
-		Random random = new Random();
-		int accountId = random.nextInt(100)+1000;
 		account.setAccountId(accountId);
-		
-		
-		
+	
 		return accountDao.createWalletAccount(account);
 	}
-	public static boolean isValid(String uname) {
-	
-		boolean flag = false;
-		if(uname.length()!=0) {
-			flag = true;
-	
-		}
-		return flag;
-		
-	}
-	
 
 }
